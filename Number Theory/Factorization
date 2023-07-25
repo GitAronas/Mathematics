@@ -14,9 +14,18 @@ def factors(num):
 
 
 def primeFactors(num):
+    n = 2
+    exp = 0
     factors = {}
 
-    for n in range(2, int(sqrt(num)) + 1):
+    while num % n == 0:
+        num //= n
+        exp += 1
+
+    if exp:
+        factors[n] = exp
+
+    for n in range(3, int(sqrt(num)) + 1, 2):
         exp = 0
 
         while num % n == 0:
