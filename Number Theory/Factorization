@@ -20,12 +20,13 @@ def primeFactors(num):
     exp = 0
     factors = {}
 
-    while num % n == 0:
-        num //= n
-        exp += 1
+    if int(str(num)[-1]) in (0, 2, 4, 6, 8):
+        while num % n == 0:
+            num //= n
+            exp += 1
 
-    if exp:
-        factors[n] = exp
+        if exp:
+            factors[n] = exp
 
     for n in range(3, int(sqrt(num)) + 1, 2):
         exp = 0
@@ -36,6 +37,11 @@ def primeFactors(num):
 
         if exp:
             factors[n] = exp
+
+    if num > 1:
+        factors[num] = 1
+
+    return factors
 
     if num > 1:
         factors[num] = 1
