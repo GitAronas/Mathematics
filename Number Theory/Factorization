@@ -1,0 +1,32 @@
+from math import sqrt
+
+
+def factors(num):
+    f = {1, num}
+
+    for i in range(2, int(sqrt(num)) + 1):
+        d, r = divmod(num, i)
+
+        if r == 0:
+            f.update((i, d))
+
+    return sorted(f)
+
+
+def primeFactors(num):
+    factors = {}
+
+    for n in range(2, int(sqrt(num)) + 1):
+        exp = 0
+
+        while num % n == 0:
+            num //= n
+            exp += 1
+
+        if exp:
+            factors[n] = exp
+
+    if num > 1:
+        factors[num] = 1
+
+    return factors
