@@ -42,8 +42,3 @@ def primeFactors(num):
         factors[num] = 1
 
     return factors
-
-    if num > 1:
-        factors[num] = 1
-
-    return factors
