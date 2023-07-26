@@ -1,0 +1,28 @@
+from math import sqrt
+from array import array
+from itertools import repeat
+
+def isPrime(num: int):
+    if num <= 1: return False
+
+    if num == 2: return True
+
+    if int(str(num)[-1]) in (0, 2, 4, 6, 8): return False
+
+    for n in range(3, int(sqrt(num)) + 1, 2):
+        if num % n == 0:
+            return False
+    else:
+        return True
+
+
+def primeSieve(sieveSize):
+    sieve = array('B', repeat(True, sieveSize + 1))
+    sieve[0] = sieve[1] = False
+
+    for i in range(2, int(sqrt(sieveSize)) + 1):
+        if sieve[i]:
+            for j in range(i, (sieveSize // i) + 1):
+                sieve[i * j] = False
+
+    return [i for i, v in enumerate(sieve) if v]
