@@ -1,0 +1,96 @@
+"""
+Created on Wed Jun 28 14:10:44 2023
+
+@author: Amar Doshi
+"""
+
+def divisibilityRules(n: int):
+    '''
+    Implementaion of divisibility rules upto 29
+    '''
+
+    def div3(n: int):
+        while n > 9:
+            n = sum(map(int, str(n)))
+
+        return n % 3 == 0
+
+    def div7(s: str):
+        while len(s[:-1]) > 1:
+            s = str(int(s[:-1]) - (int(s[-1]) * 2))
+
+        return int(s) % 7 == 0
+
+    def div11(s: str):
+        while l := len(s) > 2:
+            s = str(sum(int(s[i]) for i in range(0, l, 2))
+                    - sum(int(s[i]) for i in range(1, l, 2)))
+
+        return int(s) % 11 == 0
+
+    def div13(s: str):
+        while len(s[:-1]) > 2:
+            s = str(int(s[:-1]) + (int(s[-1]) * 4))
+
+        return int(s) % 13 == 0
+
+    def div17(s: str):
+        while len(s[:-1]) > 2:
+            s = str(int(s[:-1]) - (int(s[-1]) * 5))
+
+        return int(s) % 17 == 0
+
+    def div19(s: str):
+        while len(s[:-1]) > 2:
+            s = str(int(s[:-1]) + (int(s[-1]) * 2))
+
+        return int(s) % 19 == 0
+
+    def div23(s: str):
+        while len(s[:-1]) > 2:
+            s = str(int(s[:-1]) + (int(s[-1]) * 7))
+
+        return int(s) % 23 == 0
+
+    def div29(s: str):
+        while len(s[:-1]) > 2:
+            s = str(int(s[:-1]) + (int(s[-1]) * 3))
+
+        return int(s) % 29 == 0
+
+
+    f = []
+    s = str(n)
+    d1 = int(s[-1])
+
+    if d1 in {0, 2, 4, 6, 8}:
+        f.append(2)
+
+    if div3(n):
+        f.append(3)
+
+    if d1 in {0, 5}:
+        f.append(5)
+
+    if div7(s):
+        f.append(7)
+
+    if div11(s):
+        f.append(11)
+
+    if div13(s):
+        f.append(13)
+
+    if div17(s):
+        f.append(17)
+
+    if div19(s):
+        f.append(19)
+
+    if div23(s):
+        f.append(23)
+
+    if div29(s):
+        f.append(29)
+
+    return f
