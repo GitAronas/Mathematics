@@ -18,11 +18,15 @@ def isPrime(num: int):
 
 def primeSieve(sieveSize):
     sieve = array('B', repeat(True, sieveSize + 1))
+
     sieve[0] = sieve[1] = False
 
-    for i in range(2, int(sqrt(sieveSize)) + 1):
+    for i in range(4, sieveSize + 1, 2):
+        sieve[i] = False
+
+    for i in range(3, int(sqrt(sieveSize)) + 1, 2):
         if sieve[i]:
-            for j in range(i, (sieveSize // i) + 1):
+            for j in range(i, (sieveSize // i) + 1, 2):
                 sieve[i * j] = False
 
     return [i for i, v in enumerate(sieve) if v]
