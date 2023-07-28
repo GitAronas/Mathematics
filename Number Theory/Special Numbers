@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jul 25 18:15:32 2023
+
+@author: Amar Doshi
+"""
+
+from math import sqrt
+from array import array
+
+
+def isAbundant(num: int):
+    f = {1}
+
+    for n in range(2, int(sqrt(num)) + 1):
+        d, r = divmod(num, n)
+
+        if r == 0:
+            f.update((n, d))
+
+    return sum(f) > num
+
+
+def areAmicable(n1, n2):
+    def properDivisors(num):
+        f = {1}
+
+        for n in range(2, int(sqrt(num)) + 1):
+            d, r = divmod(num, n)
+
+            if r == 0:
+                f.update((n, d))
+
+        return f
+
+    return sum(properDivisors(n1)) == n2 and sum(properDivisors(n2)) == n1
+
+
+def isArmstrong(num: int):
+    n = str(num)
+    exp = len(n)
+
+    return sum(int(c) ** exp for c in n) == num
+
+
+def isPerfect(num: int):
+    def properDivisors(num):
+        f = {1}
+
+        for n in range(2, int(sqrt(num)) + 1):
+            d, r = divmod(num, n)
+
+            if r == 0:
+                f.update((n, d))
+
+        return f
+
+    return sum(properDivisors(num)) == num
