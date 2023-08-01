@@ -18,7 +18,7 @@ def primeFactors(num):
 
     factors = {}
 
-    if int(str(num)[-1]) in (0, 2, 4, 6, 8):
+    if not (num & 1):
         n = 2
         exp = 0
 
