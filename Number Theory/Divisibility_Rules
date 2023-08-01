@@ -63,7 +63,7 @@ def divisibilityRules(n: int):
     s = str(n)
     d1 = int(s[-1])
 
-    if d1 in {0, 2, 4, 6, 8}:
+    if not (num & 1):
         f.append(2)
 
     if div3(n):
