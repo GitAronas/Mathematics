@@ -67,7 +67,7 @@ Finally, the resulting sequence is the lucky numbers.
 https://www.w3resource.com/python-exercises/math/
 '''
 
-def luckyNumbers(n):
+def luckyNumbers(n: int) -> list[int]:
     l = [0] + list(range(1, n + 1, 2))
 
     ln = len(l)
