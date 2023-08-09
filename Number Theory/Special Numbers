@@ -21,6 +21,18 @@ def isAbundant(num: int):
     return sum(f) > num
 
 
+def aliquotSum(num: int):
+    f = {1}
+
+    for i in range(2, int(sqrt(num)) + 1):
+        d, r = divmod(num, i)
+
+        if r == 0:
+            f.update((i, d))
+
+    return sum(f)
+
+
 def areAmicable(n1, n2):
     def properDivisors(num):
         f = {1}
