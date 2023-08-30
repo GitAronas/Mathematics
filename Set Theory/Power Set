@@ -22,9 +22,9 @@ def powerSet(lst: list) -> list[list]:
     r = []
     s = []
 
-    lstlen = len(lst)
+    lstlen = len(lst) + 1
 
-    for i in range(lstlen + 1):
-        ps(0, lstlen - i + 1, i)
+    for i in range(lstlen):
+        ps(0, lstlen - i, i)
 
     return s
