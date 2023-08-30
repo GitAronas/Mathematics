@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Aug 29 11:14:31 2023
+
+@author: Amar Doshi
+"""
+
+
+def powerSet(lst: list) -> list[list]:
+    def ps(start, stop, levels):
+        if levels:
+            for i in range(start, stop):
+                r.append(lst[i])
+                ps(i + 1, stop + 1, levels - 1)
+                r.pop()
+        else:
+            s.append(r.copy())
+
+    r = []
+    s = []
+
+    lstlen = len(lst)
+
+    for i in range(lstlen + 1):
+        ps(0, lstlen - i + 1, i)
+
+    return s
