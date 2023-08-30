@@ -9,9 +9,12 @@ Created on Tue Aug 29 11:14:31 2023
 def powerSet(lst: list) -> list[list]:
     def ps(start, stop, levels):
         if levels:
+            s1 = stop + 1
+            l1 = levels - 1
+
             for i in range(start, stop):
                 r.append(lst[i])
-                ps(i + 1, stop + 1, levels - 1)
+                ps(i + 1, s1, l1)
                 r.pop()
         else:
             s.append(r.copy())
