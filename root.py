@@ -108,21 +108,3 @@ def error() -> Fraction:
     """
 
     return _p - _number
-
-
-# if __name__ == '__main__':
-
-#     print()
-
-#     n = 27
-#     x = 2
-#     i = 2
-
-#     r = root(n, x, i)
-#     mf = mixedFraction()
-
-#     print(lowerBound, upperBound)
-#     print(n ** (1/x))
-#     print(r)
-#     print(f'{mf[0]}+{mf[1]}')
-#     print(error())
