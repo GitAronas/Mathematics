@@ -146,9 +146,3 @@ class Quaternion:
 
     def __str__(self):
         return f'({self.r}{self.i:+}i{self.j:+}j{self.k:+}k)'
-
-
-
-if __name__ == '__main__':
-
-    print()
