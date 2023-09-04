@@ -82,11 +82,13 @@ class Quaternion:
                           o * self.j,
                           o * self.k)
 
-    '''z1 * z2 =
+    '''
+    z1 * z2 =
          a*e - b*f - c*g - d*h
     + i (a*f + b*e + c*h - d*g)
     + j (a*g - b*h + c*e + d*f)
-    + k (a*h + b*g - c*f + d*e)'''
+    + k (a*h + b*g - c*f + d*e)
+    '''
 
     def __matmul__(self, o):
         '''Quarternion Multiplication'''
@@ -107,7 +109,6 @@ class Quaternion:
 
         return self
 
-    #TODO Quaternion division & inverse
 
     def __truediv__(self, o):
         if isinstance(o, Quaternion):
